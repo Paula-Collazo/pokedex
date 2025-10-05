@@ -14,7 +14,9 @@ h1 {
   background-color: rgb(236, 91, 81);
   line-height: 80px;
   border: 3px solid black;
+   border-radius: 20px;
   -webkit-text-stroke: 1px black;
+  margin-top: 0px;
 }
 .container {
   display: grid;
@@ -51,3 +53,24 @@ li {
 #shiny {
   width: 55%;
 }
+
+#header {
+  background-image: url(./cabecera.jpg);
+  background-repeat: no-repeat;
+  height: 80px;
+  position: relative;
+}
+
+#buscador-pokemon {
+  position: absolute;
+  top: 50px;   
+  left: 140px; 
+}
+
+#boton-buscar-pokemon {
+  position: absolute;
+  top: 50px;
+  left: 260px; 
+}
+
+

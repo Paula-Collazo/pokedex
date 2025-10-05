@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   document
-    .getElementById("boton-buscar-pokemon")
+    .getElementById("boton-buscar-pokemon")//buscador
     .addEventListener("click", async (e) => {
       e.preventDefault();
 
@@ -30,16 +30,24 @@ document.addEventListener("DOMContentLoaded", () => {
           pokemonSpecies = pokemonSpeciesCopy;
         });
 
+
+      // PRIMERA PROMISE
+
+      // nombre y número de la pokédex
       document.getElementById(
         "nombre"
       ).innerHTML = `${pokemon.forms[0].name.toUpperCase()} #${pokemon.id}`;
 
+
+      // imagenes
       document.getElementById("imagen").src =
         pokemon.sprites.other["official-artwork"].front_default;
 
       document.getElementById("shiny").src =
         pokemon.sprites.other["official-artwork"].front_shiny;
 
+
+      //stats
       const stats = document.getElementById("stats");
       stats.innerHTML = "";
       pokemon.stats.forEach((stat) => {
@@ -48,14 +56,19 @@ document.addEventListener("DOMContentLoaded", () => {
         stats.innerHTML += `<li>${nombreStat.toUpperCase()}: ${valor}</li>`;
       });
 
+      // sonido
       document.getElementById("grito").src = pokemon.cries.latest;
 
+      // SEGUNDA PROMISE
+
+      // color de fondo segun el color del pokémon
       document.getElementById("nombre").style.backgroundColor =
         pokemonSpecies.color.name;
 
+      //descripción en español del pokémon 
       const descripcion = pokemonSpecies.flavor_text_entries.find(
         (elemento) => {
-          return elemento.language.name == "es";
+          return elemento.language.name == "es"; // buscar la descripción en español
         }
       );
 
